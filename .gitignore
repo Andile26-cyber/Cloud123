@@ -1,0 +1,33 @@
+
+# direnv (local AWS profile)
+.envrc
+node_modules/
+dist/
+cdk.out/
+*.tsbuildinfo
+.env*.local
+samples/
+infra/cdk-outputs.json
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.key
+*.p12
+*.pfx
+credentials
+.aws/
+**/.aws/
+
+# Python generated files
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Local system files
+.DS_Store
+frontend/src/pages/Dashboard.original.tsx

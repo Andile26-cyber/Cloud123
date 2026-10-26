@@ -1,0 +1,69 @@
+@import "tailwindcss";
+@theme {
+  --font-sans: "Inter", "Aptos", ui-sans-serif, system-ui, sans-serif;
+  --color-navy-950: #091c25;
+  --color-navy-900: #102631;
+  --color-navy-800: #222631;
+  --color-navy-700: #323845;
+  --color-brand-50: #e8fcfd;
+  --color-brand-100: #c9f5f5;
+  --color-brand-500: #00dfe5;
+  --color-brand-600: #00bfc3;
+  --color-brand-700: #087e82;
+  --color-ok-50: #e8fbf9;
+  --color-ok-500: #00bfc3;
+  --color-ok-600: #0b8b88;
+}
+@layer base {
+  body { background:#e5eff1; color:#142c34; font-family:var(--font-sans); -webkit-font-smoothing:antialiased; }
+  ::selection { background:#00dfe5; color:#091c25; }
+  :focus-visible { outline: 2px solid #00bfc3; outline-offset:3px; }
+}
+@utility card { @apply rounded-[23px] border border-[#e8e9ee] bg-white shadow-[0_10px_30px_-24px_rgba(17,20,27,.3)]; }
+@utility btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition duration-200 disabled:cursor-not-allowed disabled:opacity-50; }
+@utility btn-primary { @apply btn bg-[#00dfe5] text-[#07262b] hover:bg-[#80f5f2] hover:shadow-[0_5px_20px_rgba(183,251,69,.28)]; }
+@utility btn-secondary { @apply btn border border-[#dfe1e5] bg-white text-[#242830] hover:border-[#00dfe5] hover:bg-[#effcfc]; }
+@utility btn-ghost { @apply btn text-slate-600 hover:bg-slate-100; }
+@utility btn-danger { @apply btn border border-red-200 bg-white text-red-700 hover:bg-red-50; }
+@utility input { @apply w-full rounded-[14px] border border-[#dfe1e7] bg-[#fafbfc] px-4 py-3 text-sm placeholder:text-slate-400 focus:border-[#00bfc3] focus:outline-none focus:ring-2 focus:ring-[#d8fafa]; }
+@utility label { @apply mb-1.5 block text-sm font-medium text-[#343841]; }
+/* A single product design system shared by dashboard, clients, reports and settings. */
+.app-shell { background:#e5eff1; }
+.app-frame { box-shadow:0 22px 70px rgba(15,18,28,.16); }
+.app-main { background:#f5fafb; }
+.app-main .card { transition:box-shadow .2s ease, transform .2s ease; }
+.app-main .card:hover { box-shadow:0 16px 34px -25px rgba(17,20,27,.35); }
+.app-main h1,.app-main h2,.app-main h3 { letter-spacing:-.035em; }
+.app-main table { border-collapse:separate; border-spacing:0; }
+.app-main thead { background:#f1f8f9; }
+.app-main th { color:#707680; font-size:11px; letter-spacing:.07em; text-transform:uppercase; }
+.app-main tbody tr { transition:background .18s; }
+.app-main tbody tr:hover { background:#edfbfb; }
+.app-main input[type=checkbox] { accent-color:#00bfc3; }
+.app-main .rounded-lg { border-radius:14px; }
+.app-main .rounded-xl { border-radius:19px; }
+.dashboard-dark { background:radial-gradient(ellipse at 82% 0%,#28545c 0%,transparent 55%),#102631; color:#fff; }
+.dashboard-dark .card { background:#193640; border-color:#393d47; color:white; box-shadow:none; }
+.dashboard-dark .card p.text-slate-500 { color:#aeb3bf; }
+.dashboard-dark .card p.text-navy-900 { color:white; }
+.dashboard-dark .card .ring-1 { background:#363b44; color:#65eeed; --tw-ring-color:#464d52; }
+.dashboard-dark .card:hover { background:#224751; }
+.dashboard-deadlines { background:#fff; border-radius:26px; padding:24px; box-shadow:0 12px 36px -28px rgba(0,0,0,.3); }
+.dashboard-deadlines .card { box-shadow:none; border-color:#edf0f2; }
+@media print { .no-print{display:none!important} body,.app-main{background:#fff!important} .print-break{break-before:page} .card{box-shadow:none;break-inside:avoid} }
+@media (prefers-reduced-motion:reduce) { *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important} }
+
+/* Cinematic login background: decorative only; forms and authentication are unchanged. */
+.login-cinematic { background-image: url("/tenderready-cinematic.gif"); background-position: 55% center; filter: saturate(.8) contrast(1.06); transform: scale(1.025); }
+@media (prefers-reduced-motion: reduce) {
+  .login-cinematic { background-image: none; background-color: #242b32; }
+}
+
+/* Brand palette from TenderReady AI presentation; login artwork spans both columns. */
+.cinematic-auth .input { background:rgba(255,255,255,.08); color:#fff; border-color:rgba(255,255,255,.2); }
+.cinematic-auth .input:focus { border-color:#00dfe5; box-shadow:0 0 0 3px rgba(0,223,229,.14); }
+.cinematic-auth .label { color:#e4f4f6; }
+.cinematic-auth h2 { color:#fff; }
+.cinematic-auth p.text-slate-500,.cinematic-auth p.text-slate-600 { color:#b9c8cc; }
+.cinematic-auth .text-brand-600 { color:#00dfe5; }
+@media (max-width:1023px) { .cinematic-auth { min-height:100vh; } }
